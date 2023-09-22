@@ -1,17 +1,26 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-  await expect(page).toHaveTitle(/Playwright/);
-});
+// test("TC-01", async ({ page }) => {
+//   await page.goto("https://www.w3schools.com/");
+//   let searchBar = page.getByPlaceholder('Search our tutorials, e.g. HTML');
+//   await searchBar.click();
+//   await page.waitForTimeout(3000);
+//   await searchBar.fill("vijay")
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+//   await page.waitForTimeout(3000);
+// })
+test("Tc-02",async({page})=>{
+await page.goto("https://www.facebook.com/login/");
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+await page.getByPlaceholder('Email address or phone number').fill("vijaybattula");
+await page.waitForTimeout(3000)
+await page.getByRole('textbox',{name :'email'}).fill('dq7');
+await page.waitForTimeout(3000)
+//await page.getByRole('textbox',{id :'email'}).fill('dq7');
+await page.locator('#email').fill("hello");
+await page.waitForTimeout(3000)
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
-});
+
+
+})
